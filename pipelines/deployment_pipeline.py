@@ -25,9 +25,10 @@ from steps.model_train import train_model
 docker_settings = DockerSettings(required_integrations=[MLFLOW])
 
 @step(enable_cache=False)
-def dynamic_importer() -> str:
+def dynamic_importer() -> np.ndarray:
     """Downloads the latest data from a mock API."""
     data = get_data_for_test()
+    print(type(data))
     return data
 
 
@@ -105,15 +106,15 @@ def predictor(
     """Run an inference request against a prediction service"""
 
     service.start(timeout=10)  # should be a NOP if already started
-    
-    data = json.loads(data)
+    st = str(data)
+    data = json.loads(st)
+    print(st)
 
     df = pd.DataFrame(data["data"])
     data = json.loads(json.dumps(list(df.T.to_dict().values())))
     data = np.array(data)
 
-    
-
+    print(data)
     prediction = service.predict(data)
     return prediction
 

@@ -15,11 +15,9 @@ import re
 
 import nltk
 from nltk.corpus import stopwords
-nltk.download('stopwords')
+
 from nltk.stem.porter import PorterStemmer
-nltk.download('wordnet')
-nltk.download('omw-1.4')
-nltk.download('punkt')
+
 from sklearn.preprocessing import LabelEncoder
 
 from sklearn.model_selection import train_test_split
