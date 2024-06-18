@@ -26,6 +26,13 @@ only_le = [word_tokenize(title.lower()) for title in X]
 tokenizer = Tokenizer()
 tokenizer.fit_on_texts(X)
 
+categories = ['Accident', 'Aftermath', 'Animal', 'Beating', 'Beheading',
+       'Bladed', 'Burning', 'Cartel', 'Combat', 'Compilation', 'Disaster',
+       'Discussion', 'Drowning', 'Electricity', 'Execution', 'Explosions',
+       'Falling', 'Fights', 'Gore', 'Industrial', 'Isis', 'Maiming',
+       'Medical', 'Meta', 'Music', 'Other', 'Police', 'Request',
+       'Shooting', 'Social', 'Suicide', 'Vehicle'] 
+
 
 
 
@@ -73,8 +80,10 @@ def main():
             pred = service[0].predict(result)   
             # Perform transformation
             
-            st.write("Predicted_values: ")
-            st.write(pred)
+            
+            st.write("Predicted_category: ")
+
+            st.write(categories[pred.argmax()])
         else:
             st.write("Please enter some text to transform.")
 
