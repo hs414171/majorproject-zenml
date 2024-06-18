@@ -13,6 +13,10 @@ import pandas as pd
 from pipelines.deployment_pipeline import prediction_service_loader
 from run_deployment import main
 
+from zenml.integrations.mlflow.model_deployers.mlflow_model_deployer import (
+    MLFlowModelDeployer,
+)
+
 
 
 
@@ -52,17 +56,21 @@ def main():
 
     if st.button("Transform"):
         if user_input:
-            service = prediction_service_loader(
-            pipeline_name="continuous_deployment_pipeline",
-            pipeline_step_name="mlflow_model_deployer_step",
-            running=False,
+            model_deployer = MLFlowModelDeployer.get_active_model_deployer()
+            service = model_deployer.find_model_server(
+                pipeline_name="continuous_deployment_pipeline",
+                pipeline_step_name="mlflow_model_deployer_step",
+                model_name="model",
+                running = False
             )
+            print(service[0])
             if service is None:
                 st.write(
                     "No service could be found. The pipeline will be run first to create a service."
                 )
+            service[0].start(timeout=10)
             result = transform_text(user_input)
-            pred = service.predict(result)   
+            pred = service[0].predict(result)   
             # Perform transformation
             
             st.write("Predicted_values: ")

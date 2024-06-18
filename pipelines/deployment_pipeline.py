@@ -94,7 +94,7 @@ def prediction_service_loader(
             f"pipeline for the '{model_name}' model is currently "
             f"running."
         )
-    print(existing_services)
+    print(existing_services[0])
     print(type(existing_services))
     return existing_services[0]
 
