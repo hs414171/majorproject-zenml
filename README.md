@@ -111,11 +111,11 @@ streamlit run streamlit_app.py
 
 ### Screenshots
 
-![Continuous Deployment Pipeline](https://github.com/hs414171/test_zenml/static/Continuous_Deployment.png)
-![MLflow Logged Metrics](https://github.com/hs414171/test_zenml/static/Logged_Metrics.png)
-![Plotted Metrics over Epochs](https://github.com/hs414171/test_zenml/static/Model_Metrics.png)
-![APP_VA](https://github.com/hs414171/test_zenml/static/Vehicular_Accident.png)
-![APP_ISIS](https://github.com/hs414171/test_zenml/static/Isis_Beheading.png)
+![Continuous Deployment Pipeline](https://github.com/hs414171/test_zenml/tree/main/static/Continuous_Deployment.png)
+![MLflow Logged Metrics](https://github.com/hs414171/test_zenml/tree/main/static/Logged_Metrics.png)
+![Plotted Metrics over Epochs](https://github.com/hs414171/test_zenml/tree/main/static/Model_Metrics.png)
+![APP_VA](https://github.com/hs414171/test_zenml/tree/main/static/Vehicular_Accident.png)
+![APP_ISIS](https://github.com/hs414171/test_zenml/tree/main/static/Isis_Beheading.png)
 
 
 ### Authors
